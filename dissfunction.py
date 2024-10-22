@@ -19,13 +19,21 @@ class FunctionAnalyzer(ast.NodeVisitor):
 
 def find_unused_functions(directory):
     unused_functions = []
-    
+
     # Traverse through all Python files in the given directory
     for root, _, files in os.walk(directory):
+        # Skip any directory that contains 'env' in its path
+        if 'env' in root.split(os.sep):
+            continue
+
         for file in files:
             if file.endswith(".py"):
                 file_path = os.path.join(root, file)
                 
+                # Skip any file that is in a path containing 'env'
+                if 'env' in file_path.split(os.sep):
+                    continue
+
                 with open(file_path, "r", encoding="utf-8") as f:
                     node = ast.parse(f.read(), filename=file_path)
                     analyzer = FunctionAnalyzer()
