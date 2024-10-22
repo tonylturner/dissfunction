@@ -26,7 +26,7 @@ The `dissfunction.py` script is a utility for analyzing a Python codebase to ide
 3. **Run the Script** by executing the following command:
 
    ```bash
-   python find_unused_functions.py
+   python dissfunction.py
    ```
 
 4. **Input the Directory Path**: When prompted, enter the path to the directory containing your Python project.
@@ -36,10 +36,10 @@ The `dissfunction.py` script is a utility for analyzing a Python codebase to ide
 ### Example Output
 
 ```
-Enter the directory path of the Python project: /path/to/your/project
+Enter the directory path of the Python project: <project_path>
 Unused functions found:
-/path/to/your/project/module1.py: unused_function1, unused_function2
-/path/to/your/project/module2.py: unused_function3
+<project_path>>/module1.py: unused_function1, unused_function2
+<project_path>>/module2.py: unused_function3
 ```
 
 ### Customization
